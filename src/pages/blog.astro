@@ -7,7 +7,6 @@ const pageTitle = 'Astro Toybox Blog';
 ---
 <Layout title={pageTitle}>
   <main>
-    <h1>{pageTitle}</h1>
     <p>This is where I will post about my journey learning Astro.</p>
     <ul>
       {allPosts.map((post) => <li><a href={`/posts/${post.slug}`}>{post.data.title}</a></li>)}

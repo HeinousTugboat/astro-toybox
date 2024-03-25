@@ -1,28 +1,21 @@
 ---
+import type { CollectionEntry } from 'astro:content';
 import Layout from './Layout.astro';
-
-interface Frontmatter {
-  title: string;
-  description: string;
-  tags: string[];
-  pubDate: Date;
-  author: string;
-}
+import { fade } from "astro:transitions";
 
 interface Props {
-  frontmatter: Frontmatter;
+  post: CollectionEntry<'posts'>;
 }
 
-const { frontmatter } = Astro.props;
+const { post } = Astro.props;
 ---
-<Layout title={frontmatter.title}>
-  <h1>{frontmatter.title}</h1>
-  <p>{frontmatter.pubDate.toString().slice(0,10)}</p>
-  <p><em>{frontmatter.description}</em></p>
-  <p>Written by: {frontmatter.author}</p>
-  <!-- <img src={frontmatter.image.url} width="300" alt={frontmatter.image.alt} /> -->
+<Layout title={post.data.title}>
+  <p>{post.data.pubDate.toString().slice(0,10)}</p>
+  <p  transition:animate={fade({ duration: '1s' })}><em>{post.data.description}</em></p>
+  <p>Written by: {post.data.author}</p>
+  <!-- <img src={post.data.image.url} width="300" alt={post.data.image.alt} /> -->
   <div class="tags">
-    {frontmatter.tags.map((tag) => (
+    {post.data.tags.map((tag) => (
       <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
     ))}
   </div>
