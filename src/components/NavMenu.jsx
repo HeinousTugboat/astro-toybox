@@ -57,6 +57,12 @@ const NavigationMenuDemo = ({ posts }) => {
           </NavigationMenu.Content>
         </NavigationMenu.Item>
 
+        <NavigationMenu.Item>
+          <NavigationMenu.Link className="NavigationMenuLink" href="/techtonica">
+            Techtonica
+          </NavigationMenu.Link>
+        </NavigationMenu.Item>
+
         <NavigationMenu.Indicator className="NavigationMenuIndicator">
           <div className="Arrow" />
         </NavigationMenu.Indicator>
