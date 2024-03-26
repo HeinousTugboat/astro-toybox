@@ -72,7 +72,7 @@ const ListItem = ({ children, title, ...props }) => (
     <NavigationMenu.Link asChild>
       <Link {...props}>
         <Heading>{title}</Heading>
-        <Text>{children}</Text>
+        <Text className="ListItemText">{children}</Text>
       </Link>
     </NavigationMenu.Link>
   </li>

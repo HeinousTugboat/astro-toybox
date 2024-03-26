@@ -1,9 +1,9 @@
-import { Theme } from '@radix-ui/themes';
+import { Theme, ThemePanel } from '@radix-ui/themes';
 
 export function ThemeLayout({ children }) {
   return (
     <Theme accentColor="red" panelBackground="solid" radius="none">
-      {/* <ThemePanel /> */}
+      <ThemePanel />
       <div>{ children }</div>
     </Theme>
   );

@@ -1,3 +1,30 @@
+.hamburger {
+  padding-right: 20px;
+  cursor: pointer;
+}
+
+.hamburger .line {
+  display: block;
+  width: 40px;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: #ff9776;
+}
+
+nav.collapsed {
+  display: none;
+}
+
+@media screen and (min-width: 636px) {
+  .hamburger {
+    display: none;
+  }
+
+  nav.collapsed {
+    display: flex;
+  }
+}
+
 body {
   margin: 0;
 }
@@ -15,6 +42,7 @@ p {
   width: 100vw;
   z-index: 1;
 }
+
 
 .NavigationMenuList {
   display: flex;
@@ -46,7 +74,7 @@ p {
 
 .NavigationMenuTrigger:hover,
 .NavigationMenuLink:hover {
-  background-color: var(--accent-3);
+  background-color: var(--gray-3);
 }
 
 .NavigationMenuTrigger {
@@ -188,7 +216,7 @@ p {
 }
 
 .ListItemText {
-  color: var(--accent-11);
+  color: var(--gray-11);
   line-height: 1.4;
   font-weight: initial;
 }
