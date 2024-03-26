@@ -3,7 +3,8 @@ import * as NavigationMenu from '@radix-ui/react-navigation-menu';
 import { CaretDownIcon } from '@radix-ui/react-icons';
 import { Link, Heading, Text } from '@radix-ui/themes'
 
-const NavigationMenuDemo = ({ tags }) => {
+const NavigationMenuDemo = ({ posts }) => {
+  const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
   return (
     <NavigationMenu.Root className="NavigationMenuRoot">
       <NavigationMenu.List className="NavigationMenuList">
@@ -27,15 +28,16 @@ const NavigationMenuDemo = ({ tags }) => {
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className="NavigationMenuContent">
             <ul className="List one">
-              <ListItem href="https://stitches.dev/" title="Stitches">
-                CSS-in-JS with best-in-class developer experience.
-              </ListItem>
-              <ListItem href="/colors" title="Colors">
-                Beautiful, thought-out palettes with auto dark mode.
-              </ListItem>
-              <ListItem href="https://icons.radix-ui.com/" title="Icons">
-                A crisp set of 15x15 icons, balanced and consistent.
-              </ListItem>
+              {posts.slice(-3).reverse().map((post) => (
+                <ListItem
+                  title={post.data.title}
+                  href={`/posts/${post.slug}`}
+                  key={post.slug}
+                >
+                  {post.data.description}
+                </ListItem>
+              ))}
+              <ListItem title="All Posts" href="/blog"></ListItem>
             </ul>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
