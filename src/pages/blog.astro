@@ -1,27 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
+import { Text, Link } from '@radix-ui/themes';
 
 const allPosts = await getCollection('posts');
 const pageTitle = 'Astro Toybox Blog';
 ---
 <Layout title={pageTitle}>
-  <main>
-    <p>This is where I will post about my journey learning Astro.</p>
-    <ul>
-      {allPosts.map((post) => <li><a href={`/posts/${post.slug}`}>{post.data.title}</a></li>)}
-    </ul>
-  </main>
+  <Text>This is where I will post about my journey learning Astro.</Text>
+  <ul>
+    {allPosts.map((post) => <li><Link href={`/posts/${post.slug}`}>{post.data.title}</Link></li>)}
+  </ul>
 </Layout>
-
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-</style>

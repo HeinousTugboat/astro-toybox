@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { getCollection } from 'astro:content';
+import { Link, Text } from '@radix-ui/themes';
 
 export async function getStaticPaths() {
   const allPosts = await getCollection('posts');
@@ -29,12 +30,12 @@ const filteredPosts = posts.filter((post) =>
 ---
 
 <Layout title={tag}>
-  <p>Posts tagged with {tag}</p>
+  <Text>Posts tagged with {tag}</Text>
   <ul>
     {
       filteredPosts.map((post) => (
         <li>
-          <a href={`/posts/${post.slug}`}>{post.data.title}</a>
+          <Link href={`/posts/${post.slug}`}>{post.data.title}</Link>
         </li>
       ))
     }

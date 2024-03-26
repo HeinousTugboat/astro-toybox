@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import Layout from './Layout.astro';
 import { fade } from "astro:transitions";
+import { Text, Badge, Flex } from '@radix-ui/themes';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -10,34 +11,14 @@ interface Props {
 const { post } = Astro.props;
 ---
 <Layout title={post.data.title}>
-  <p>{post.data.pubDate.toString().slice(0,10)}</p>
-  <p  transition:animate={fade({ duration: '1s' })}><em>{post.data.description}</em></p>
-  <p>Written by: {post.data.author}</p>
+  <Text>{post.data.pubDate.toString().slice(0,10)}</Text>
+  <Text  transition:animate={fade({ duration: '1s' })}><em>{post.data.description}</em></Text>
+  <Text>Written by: {post.data.author}</Text>
   <!-- <img src={post.data.image.url} width="300" alt={post.data.image.alt} /> -->
-  <div class="tags">
+  <Flex gap="2">
     {post.data.tags.map((tag) => (
-      <p class="tag"><a href={`/tags/${tag}`}>{tag}</a></p>
+      <Badge href={`/tags/${tag}`}>{tag}</Badge>
     ))}
-  </div>
+  </Flex>
   <slot />
 </Layout>
-
-<style>
-  a {
-    color: #00539F;
-  }
-
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .tag {
-    margin: 0.25em;
-    border: dotted 1px #777;
-    border-radius: .5em;
-    padding: .5em 1em;
-    font-size: 1.15em;
-    background-color: #222;
-  }
-</style>
