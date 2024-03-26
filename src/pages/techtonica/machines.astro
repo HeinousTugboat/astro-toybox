@@ -9,7 +9,7 @@ const pageTitle = "TT Machine Index";
 <Layout title={pageTitle}>
   <ul>
     {allItems.map((item) => (
-      <li><Link href={`/techtonica/machines/${item.id}`}>{item.data.name}</Link></li>
+      <li><Link href={`/astro-toybox/techtonica/machines/${item.id}`}>{item.data.name}</Link></li>
     ))}
   </ul>
 </Layout>

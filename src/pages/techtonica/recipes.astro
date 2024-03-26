@@ -9,7 +9,7 @@ const pageTitle = "TT Recipe Index";
 <Layout title={pageTitle}>
   <ul>
     {allItems.map((item) => (
-      <li><Link href={`/techtonica/recipes/${item.id}`}>{item.data.name}</Link></li>
+      <li><Link href={`/astro-toybox/techtonica/recipes/${item.id}`}>{item.data.name}</Link></li>
     ))}
   </ul>
 </Layout>

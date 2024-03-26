@@ -24,7 +24,7 @@ const producedBy = await getCollection('techtonica-recipes', (recipe) => recipe.
     {usedIn.length === 0 ? <li>Unknown</li> : null}
     {usedIn.map(recipe => (
       <li>
-        <Link href={`/techtonica/recipes/${recipe.id}`}>
+        <Link href={`/astro-toybox/techtonica/recipes/${recipe.id}`}>
           <Text>{recipe.data.name}</Text>
         </Link>
       </li>
@@ -35,7 +35,7 @@ const producedBy = await getCollection('techtonica-recipes', (recipe) => recipe.
     {producedBy.length === 0 ? <li>Unknown</li> : null}
     {producedBy.map(recipe => (
       <li>
-        <Link href={`/techtonica/recipes/${recipe.id}`}>
+        <Link href={`/astro-toybox/techtonica/recipes/${recipe.id}`}>
           <Text>{recipe.data.name}</Text>
         </Link>
       </li>

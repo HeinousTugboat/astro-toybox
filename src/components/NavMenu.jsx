@@ -9,20 +9,20 @@ const NavigationMenuDemo = ({ posts }) => {
     <NavigationMenu.Root className="NavigationMenuRoot">
       <NavigationMenu.List className="NavigationMenuList">
         <NavigationMenu.Item>
-          <NavigationMenu.Link className="NavigationMenuLink" href="/">
+          <NavigationMenu.Link className="NavigationMenuLink" href="/astro-toybox">
             Home
           </NavigationMenu.Link>
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          <NavigationMenu.Link className="NavigationMenuLink" href="/about">
+          <NavigationMenu.Link className="NavigationMenuLink" href="/astro-toybox/about">
             About
           </NavigationMenu.Link>
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
           <NavigationMenu.Trigger className="NavigationMenuTrigger">
-            <NavigationMenu.Link className="NavigationMenuLink" href="/blog">
+            <NavigationMenu.Link className="NavigationMenuLink" href="/astro-toybox/blog">
               Blog <CaretDownIcon className="CaretDown" aria-hidden />
             </NavigationMenu.Link>
           </NavigationMenu.Trigger>
@@ -37,28 +37,28 @@ const NavigationMenuDemo = ({ posts }) => {
                   {post.data.description}
                 </ListItem>
               ))}
-              <ListItem title="All Posts" href="/blog"></ListItem>
+              <ListItem title="All Posts" href="/astro-toybox/blog"></ListItem>
             </ul>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
           <NavigationMenu.Trigger className="NavigationMenuTrigger">
-            <NavigationMenu.Link className="NavigationMenuLink" href="/tags">
+            <NavigationMenu.Link className="NavigationMenuLink" href="/astro-toybox/tags">
               Tags <CaretDownIcon className="CaretDown" aria-hidden />
             </NavigationMenu.Link>
           </NavigationMenu.Trigger>
           <NavigationMenu.Content className="NavigationMenuContent">
             <ul className="List two">
               {tags.map((tag) => (
-                <ListItem title={tag} href={`/tags/${tag}`} key={tag} />
+                <ListItem title={tag} href={`/astro-toybox/tags/${tag}`} key={tag} />
               ))}
             </ul>
           </NavigationMenu.Content>
         </NavigationMenu.Item>
 
         <NavigationMenu.Item>
-          <NavigationMenu.Link className="NavigationMenuLink" href="/techtonica">
+          <NavigationMenu.Link className="NavigationMenuLink" href="/astro-toybox/techtonica">
             Techtonica
           </NavigationMenu.Link>
         </NavigationMenu.Item>

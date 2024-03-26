@@ -19,7 +19,7 @@ const recipes = await getCollection('techtonica-recipes', (recipe) => recipe.dat
   <ul>
     {recipes.map(recipe => (
       <li>
-        <Link href={`/techtonica/recipes/${recipe.id}`}>{recipe.data.name}</Link>
+        <Link href={`/astro-toybox/techtonica/recipes/${recipe.id}`}>{recipe.data.name}</Link>
       </li>
     ))}
   </ul>

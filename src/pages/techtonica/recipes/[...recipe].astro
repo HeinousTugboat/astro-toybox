@@ -26,9 +26,9 @@ const outputs = recipe.data.outputs.map(output => {
 ---
 
 <Layout title={recipe.data.name}>
-  <Text>Made in: <Link href=`/techtonica/machines/${machine.id}`>{machine.data.name}</Link> ({recipe.data.rate}/min)</Text>
+  <Text>Made in: <Link href=`/astro-toybox/techtonica/machines/${machine.id}`>{machine.data.name}</Link> ({recipe.data.rate}/min)</Text>
   <Heading>Consumes</Heading>
-  { inputs.map(input => (<Text>{input.quantity}x <Link href=`/techtonica/items/${input.item.id}`>{input.name}</Link></Text>)) }
+  { inputs.map(input => (<Text>{input.quantity}x <Link href=`/astro-toybox/techtonica/items/${input.item.id}`>{input.name}</Link></Text>)) }
   <Heading>Produces</Heading>
-  { outputs.map(output => (<Text>{output.quantity}x <Link href=`/techtonica/items/${output.item.id}`>{output.name}</Link></Text>)) }
+  { outputs.map(output => (<Text>{output.quantity}x <Link href=`/astro-toybox/techtonica/items/${output.item.id}`>{output.name}</Link></Text>)) }
 </Layout>
