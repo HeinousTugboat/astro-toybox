@@ -1,0 +1,17 @@
+{
+  "name": "Grown Kindlevine",
+  "machine": "planter",
+  "rate": 0.5,
+  "inputs": [
+    {
+      "item": "kindlevine-seed",
+      "quantity": 4
+    }
+  ],
+  "outputs": [
+    {
+      "item": "kindlevine",
+      "quantity": 4
+    }
+  ]
+}

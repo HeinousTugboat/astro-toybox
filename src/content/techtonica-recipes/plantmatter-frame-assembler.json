@@ -1,0 +1,17 @@
+{
+  "name": "Assembled Plantmatter Frame",
+  "machine": "assembler",
+  "rate": 7.5,
+  "inputs": [
+    {
+      "item": "plantmatter-fiber",
+      "quantity": 8
+    }
+  ],
+  "outputs": [
+    {
+      "item": "plantmatter-frame",
+      "quantity": 2
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Link } from '@radix-ui/themes';
+
+const allItems = await getCollection('techtonica-machines');
+const pageTitle = "TT Machine Index";
+---
+<Layout title={pageTitle}>
+  <ul>
+    {allItems.map((item) => (
+      <li><Link href={`/techtonica/machines/${item.id}`}>{item.data.name}</Link></li>
+    ))}
+  </ul>
+</Layout>

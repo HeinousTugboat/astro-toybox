@@ -1,0 +1,34 @@
+---
+import { getCollection, getEntry, getEntries } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import { Link, Text, Heading } from '@radix-ui/themes'
+
+export async function getStaticPaths() {
+  const recipes = await getCollection('techtonica-recipes');
+  return recipes.map(recipe => ({
+    params: { recipe: recipe.id }, props: { recipe },
+  }));
+}
+
+const { recipe } = Astro.props;
+const machine = await getEntry('techtonica-machines', recipe.data.machine.id);
+const inputItems = await getEntries(recipe.data.inputs.map(input => input.item));
+const outputItems = await getEntries(recipe.data.outputs.map(output => output.item));
+
+const inputs = recipe.data.inputs.map(input => {
+  const item = inputItems.find(item => item.id === input.item.id) ?? { data: {} };
+  return { ...item.data, ...input };
+});
+const outputs = recipe.data.outputs.map(output => {
+  const item = outputItems.find(item => item.id === output.item.id) ?? { data: {} };
+  return { ...item.data, ...output };
+});
+---
+
+<Layout title={recipe.data.name}>
+  <Text>Made in: <Link href=`/techtonica/machines/${machine.id}`>{machine.data.name}</Link> ({recipe.data.rate}/min)</Text>
+  <Heading>Consumes</Heading>
+  { inputs.map(input => (<Text>{input.quantity}x <Link href=`/techtonica/items/${input.item.id}`>{input.name}</Link></Text>)) }
+  <Heading>Produces</Heading>
+  { outputs.map(output => (<Text>{output.quantity}x <Link href=`/techtonica/items/${output.item.id}`>{output.name}</Link></Text>)) }
+</Layout>

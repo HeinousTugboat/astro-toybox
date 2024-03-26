@@ -1,0 +1,21 @@
+{
+  "name": "Threshed Kindlevine Stem",
+  "machine": "thresher",
+  "rate": 10,
+  "inputs": [
+    {
+      "item": "kindlevine-stem",
+      "quantity": 1
+    }
+  ],
+  "outputs": [
+    {
+      "item": "plantmatter-fiber",
+      "quantity": 3
+    },
+    {
+      "item": "kindlevine-extract",
+      "quantity": 3
+    }
+  ]
+}

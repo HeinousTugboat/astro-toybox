@@ -1,0 +1,21 @@
+{
+  "name": "Threshed Kindlevine",
+  "machine": "thresher",
+  "rate": 10,
+  "inputs": [
+    {
+      "item": "kindlevine",
+      "quantity": 1
+    }
+  ],
+  "outputs": [
+    {
+      "item": "kindlevine-stem",
+      "quantity": 3
+    },
+    {
+      "item": "kindlevine-seed",
+      "quantity": 1
+    }
+  ]
+}

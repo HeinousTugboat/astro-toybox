@@ -1,0 +1,26 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import { Link, Heading } from '@radix-ui/themes'
+
+export async function getStaticPaths() {
+  const machines = await getCollection('techtonica-machines');
+  return machines.map(machine => ({
+    params: { machine: machine.id }, props: { machine },
+  }));
+}
+
+const { machine } = Astro.props;
+const recipes = await getCollection('techtonica-recipes', (recipe) => recipe.data.machine.id === machine.id);
+---
+
+<Layout title={machine.data.name}>
+  <Heading>Recipes</Heading>
+  <ul>
+    {recipes.map(recipe => (
+      <li>
+        <Link href={`/techtonica/recipes/${recipe.id}`}>{recipe.data.name}</Link>
+      </li>
+    ))}
+  </ul>
+</Layout>

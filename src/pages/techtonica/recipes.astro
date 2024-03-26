@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { Link } from '@radix-ui/themes';
+
+const allItems = await getCollection('techtonica-recipes');
+const pageTitle = "TT Recipe Index";
+---
+<Layout title={pageTitle}>
+  <ul>
+    {allItems.map((item) => (
+      <li><Link href={`/techtonica/recipes/${item.id}`}>{item.data.name}</Link></li>
+    ))}
+  </ul>
+</Layout>
