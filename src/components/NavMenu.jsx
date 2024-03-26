@@ -31,7 +31,7 @@ const NavigationMenuDemo = ({ posts }) => {
               {posts.slice(-3).reverse().map((post) => (
                 <ListItem
                   title={post.data.title}
-                  href={`/posts/${post.slug}`}
+                  href={`/astro-toybox/posts/${post.slug}`}
                   key={post.slug}
                 >
                   {post.data.description}
