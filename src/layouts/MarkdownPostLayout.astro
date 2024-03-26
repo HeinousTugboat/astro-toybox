@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import Layout from './Layout.astro';
 import { fade } from "astro:transitions";
-import { Text, Badge, Flex, Em, DataList } from '@radix-ui/themes';
+import { Text, Badge, Flex, Em, DataList, Link } from '@radix-ui/themes';
 
 interface Props {
   post: CollectionEntry<'posts'>;
@@ -25,7 +25,7 @@ const { post } = Astro.props;
   <!-- <img src={post.data.image.url} width="300" alt={post.data.image.alt} /> -->
   <Flex gap="2">
     {post.data.tags.map((tag) => (
-      <Badge href={`/tags/${tag}`}>{tag}</Badge>
+      <Link href={`/tags/${tag}`}><Badge>{tag}</Badge></Link>
     ))}
   </Flex>
   <slot />
